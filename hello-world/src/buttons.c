@@ -2,7 +2,7 @@
  * buttons.c
  *
  *  Created on: 07.01.2017
- *      Author: Piotrek
+ *      Author: OstrowskiP
  */
 
 #include <avr/io.h>

@@ -2,7 +2,7 @@
  * main.c
  *
  *  Created on: 07.01.2017
- *      Author: Piotrek
+ *      Author: OstrowskiP
  */
 
 #include <avr/io.h>
@@ -17,8 +17,8 @@ void f1() {
 int main() {
 	buttonsInit();
 
-	// PIN wejœcia w domyœle jest wy³¹czony
-	DDRB |= (1 << 1); // Wprowadzamy PIN wyjœcia w stan wysoki
+	// Input PIN is turned down by default
+	DDRB |= (1 << 1); // Set a bit in PIN to mark as OUTPUT
 
 	while (1) {
 		buttonActionCallback(0, f1);
