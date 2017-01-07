@@ -9,14 +9,21 @@
 #include "../include/buttons.h"
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <avr/pgmspace.h>
 
-uint8_t gamma_correctionR[32] = { 0, 1, 1, 1, 2, 3, 5, 7, 10, 13, 17, 21, 26,
+const uint8_t gamma_correctionR[32] PROGMEM = { 0, 1, 1, 1, 2, 3, 5, 7, 10, 13, 17, 21, 26,
 		32, 38, 45, 52, 60, 69, 78, 88, 99, 111, 124, 137, 151, 166, 182, 199,
 		217, 235, 255 };
+
 
 void f1() {
 	PORTB ^= 1 << 1;
 }
+
+void f2() {
+
+}
+
 
 int main() {
 	buttonsInit();
@@ -53,6 +60,5 @@ ISR(TIMER0_OVF_vect) {
 		else
 			slope = 0;
 	}
-//	TCNT0 = 254;
-	OCR2 = gamma_correctionR[gammaIndex];
+	OCR2 = pgm_read_byte(&gamma_correctionR[gammaIndex]);
 }

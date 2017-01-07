@@ -17,7 +17,7 @@
 #define USE_BUTTON_ACTION_PINNO_ACTION
 
 // Whether to use this function buttonAction(pinNumber)
-#define USE_BUTTON_ACTION_PINNO
+//#define USE_BUTTON_ACTION_PINNO
 
 void buttonsInit();
 
